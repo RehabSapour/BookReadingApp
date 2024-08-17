@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">my_app2</string>
+    <string name="description">Description</string>
+    <string name="book">Book</string>
+    <string name="book_image" />
+    <string name="book_title">Book Title</string>
+    <string name="book_description">Book Description</string>
+    <string name="email">Email</string>
+    <string name="password">password</string>
+    <string name="phone_number">Phone number</string>
+    <string name="summit">summit</string>
+    <string name="enjoy_reading_books_and_novels_of_various_kinds_of_favorites_to_you_n_i_wish_you_an_enjoyable_reading">Enjoy reading books and novels of various kinds of favorites to you I wish you an enjoyable reading</string>
+    <string name="get_in">Get In</string>
+    <string name="signup">signup</string>
+    <string name="need_an_account">Need an account?</string>
+    <string name="or">OR</string>
+    <string name="forget_passsword">Forget passsword?</string>
+    <string name="login">Login</string>
+    <string name="remember_me">Remember me</string>
+    <string name="log_in">Log In</string>
+    <string name="emailhint">Email</string>
+    <string name="what_would_you_like_to_read">What would you like to read ?</string>
+    <string name="first">THE ADVENTURES OF TOM SAWYER
+        Take a lighthearted, nostalgic trip to a simpler time, seen through
+        the eyes of a very special boy named Tom Sawyer. It is a dreamlike
+        summertime world of hooky and adventure, pranks and punishment, villains and first love,
+        filled with memorable characters. Adults and young readers alike continue to enjoy this delightful classic of the
+        promise and dreams of youth from one of America’s most beloved authors.</string>
+    <string name="des1">Mark Twain, born Samuel Langhorne Clemens, was a prolific American author and humorist.
+        Twain is best known for his novels Adventures of Huckleberry Finn (1884), which has been called "the Great American Novel",
+        and The Adventures of Tom Sawyer (1876). He is extensively quoted. Twain was a friend to presidents, artists, industrialists, and European
+        royalty__Mark Twain, born Samuel Langhorne Clemens, was a prolific American author and humorist.
+        Twain is best known for his novels Adventures of Huckleberry Finn (1884), which has been called "the Great American Novel",
+        and The Adventures of Tom Sawyer (1876). He is extensively quoted. Twain was a friend to presidents, artists, industrialists, and European
+        royalty</string>
+    <string name="second">For years readers of these four novels wrote to "Richard Bachman," asking if the author was really Stephen King writing
+        under a psudonym. Now the secret is out—and so are these four spellbinding tales of future shock and suspense,
+        available for the first time in one volume.(back cover).</string>
+    <string name="des2">American author. Called the "King of Horror",[2] he has also explored other genres, among them suspense, crime,science-fiction, fantasy and mystery.[3]
+        Though known primarily for his novels, he has written approximately 200 short stories, most of which have been published incollections.[4]</string>
+
+    <string name="third">Inspired by her report on a female pirate, and challenged by a boy in her class, Kylie Jean and her friends decide to form a pirate gang, complete with costumes,
+       a secret hideout, and buried treasure—but when the treasure disappears Kylie makes an important discovery about the local haunted house</string>
+
+    <string name="des3">American author. Called the "King of Horror",[2] he has also explored other genres, among them suspense, crime,science-fiction, fantasy and mystery.[3]
+        Though known primarily for his novels, he has written approximately 200 short stories, most of which have been published incollections.[4]</string>
+    <string name="already_have_an_account">Already have an account?</string>
+
+</resources>
