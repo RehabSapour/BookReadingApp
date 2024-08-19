@@ -16,5 +16,4 @@ data class ItemModel2(
     val summaryinfo:String,
     val writerName:String,
     val Writerinfo:String
-
 )

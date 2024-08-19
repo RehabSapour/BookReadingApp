@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".second_activity"
+    app:layoutDescription="@xml/activity_second_scene">
+
+
+    <EditText
+        android:id="@+id/txt"
+        android:layout_width="275dp"
+        android:layout_height="38dp"
+        android:layout_margin="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.086" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="username"
+        app:layout_constraintEnd_toEndOf="@+id/txt"
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="click"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

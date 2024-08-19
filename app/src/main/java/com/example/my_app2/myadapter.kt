@@ -1,21 +1,19 @@
-import android.graphics.Color
-import android.os.Handler
-import android.os.Looper
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.my_app2.ItemModel
-import com.example.my_app2.ItemModel2
 import com.example.my_app2.R
-import java.util.logging.Filter
+
 
 class MyAdapter(private var items: List<ItemModel>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     private  lateinit var mListener : onItemClickListener
+
+    // used when click on item in recycler view
     interface onItemClickListener{
         fun onItemClick(position: Int)
     }
@@ -53,6 +51,7 @@ class MyAdapter(private var items: List<ItemModel>) : RecyclerView.Adapter<MyAda
         return items.size
     }
 
+      // used for search field
     private var itemsFull: List<ItemModel> = items.toList()
 
     fun filter(text: String) {

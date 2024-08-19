@@ -8,7 +8,6 @@ data class ItemModel(
     val img: Int,
     val title: String,
     val score: String
-
 )
 
 

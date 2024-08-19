@@ -1,5 +1,3 @@
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,6 @@ import com.example.my_app2.ItemModel
 import com.example.my_app2.R
 
 class MyAdapter2(private var items: List<ItemModel>) : RecyclerView.Adapter<MyAdapter2.MyViewHolder>() {
-
 
     private  lateinit var mListener : onItemClickListener
     interface onItemClickListener{
@@ -51,7 +48,6 @@ class MyAdapter2(private var items: List<ItemModel>) : RecyclerView.Adapter<MyAd
     }
 
     private var itemsFull: List<ItemModel> = items.toList()
-
     fun filter(text: String) {
         items = if (text.isEmpty()) {
             itemsFull

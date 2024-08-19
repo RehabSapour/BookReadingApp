@@ -1,31 +1,25 @@
 package com.example.my_app2
 
 import android.view.LayoutInflater
-import android.graphics.Color
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.my_app2.ItemModel
-import com.example.my_app2.ItemModel2
-import com.example.my_app2.R
-import java.util.logging.Filter
 
-class favAdapter (private val favoriteBooks: List<Book>) : RecyclerView.Adapter<favAdapter.BookViewHolder>() {
+
+class favAdapter  : RecyclerView.Adapter<favAdapter.BookViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_book, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fav_viewholder, parent, false)
         return BookViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = favoriteBooks[position]
-        holder.bind(book)
+        holder.bookImageView.setImageDrawable(book.imageId)
+        holder.bookTitleTextView.text= book.title
     }
 
     override fun getItemCount(): Int {
@@ -33,12 +27,8 @@ class favAdapter (private val favoriteBooks: List<Book>) : RecyclerView.Adapter<
     }
 
     inner class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val bookImageView: ImageView = itemView.findViewById(R.id.pic1)
-        private val bookTitleTextView: TextView = itemView.findViewById(R.id.titletxt2)
+         val bookImageView: ImageView = itemView.findViewById(R.id.pic2)
+         val bookTitleTextView: TextView = itemView.findViewById(R.id.titletxt3)
 
-        fun bind(book: Book) {
-            bookImageView.setImageResource(book.imageId)
-            bookTitleTextView.text = book.title
-        }
     }
 }

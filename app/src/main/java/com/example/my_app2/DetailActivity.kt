@@ -6,26 +6,24 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
+
 import com.google.android.material.imageview.ShapeableImageView
 import detail_adapter
+
+ val favoriteBooks: ArrayList<Book> = ArrayList()
 
 class DetailActivity : AppCompatActivity() {
     lateinit var back : ImageView
     lateinit var recycler :RecyclerView
     var item: ArrayList<inter_item> = ArrayList()
-   //public val favoriteBooks: ArrayList<Book> = ArrayList()
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-
 
         val img : ShapeableImageView = findViewById(R.id.posternrmalimg)
         val title : TextView = findViewById(R.id.booknametxt)
@@ -38,26 +36,15 @@ class DetailActivity : AppCompatActivity() {
 
         val Bundle : Bundle ? = intent.extras
         val imag=Bundle!!.getInt("img")
-        val tit1 = Bundle.getString("title")
-        val sta = Bundle.getString("star")
-        val views = Bundle.getString("views")
-        val cal = Bundle.getString("date")
-        val writerinfo = Bundle.getString("desb")
-        val name = Bundle.getString("weitername")
-        val  bookinfo = Bundle.getString("desw")
-
-//        val des = getString(R.string.first)
-//        val info = getString(R.string.des1)
 
         img.setImageResource(imag)
-        title.text=tit1
-        star.text=sta
-        viewer.text=views
-        date.text=cal
-        summaryinfo.text=bookinfo
-        wname.text=name
-        writerInfo.text= writerinfo
-
+        title.text= Bundle.getString("title")
+        star.text= Bundle.getString("star")
+        viewer.text= Bundle.getString("views")
+        date.text=Bundle.getString("date")
+        summaryinfo.text= Bundle.getString("desw")
+        wname.text= Bundle.getString("weitername")
+        writerInfo.text= Bundle.getString("desb")
 
         back = findViewById(R.id.back_arrow)
         back.setOnClickListener{
@@ -66,31 +53,36 @@ class DetailActivity : AppCompatActivity() {
 
         val favImageView: ImageView = findViewById(R.id.fav)
 
-
         favImageView.setOnClickListener {
-           // val book = Book(imag, tit)
-          //  favoriteBooks.add(book)
+            val bookTitle = findViewById<TextView>(R.id.booknametxt).text.toString()
+            val bookImageView = findViewById<ImageView>(R.id.posternrmalimg)
+            val bookDrawable = bookImageView.drawable
             favImageView.setImageResource(R.drawable.yellow_heart)
             Toast.makeText(applicationContext, "Book added to favorites", Toast.LENGTH_SHORT).show()
+            // take title and book img
+            val book = Book(bookDrawable,bookTitle )
+            favoriteBooks.add(book)
+         }
 
-        }
+        setData()
 
-        val images = arrayOf(
-            R.drawable.mark_twien
-//            R.drawable.one, R.drawable.two, R.drawable.three,
-//            R.drawable.one, R.drawable.two, R.drawable.three,
-//            R.drawable.one, R.drawable.two, R.drawable.three,
-
-        )
-        for (i in images.indices) {
-            val ob = inter_item(images[i])
-            item.add(ob)
-        }
+        //////////////////////// add recycler view code ///////////////////////////
 
         recycler = findViewById(R.id.recyclerView_in_detail)
         recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val adapt = detail_adapter(item)
         recycler.adapter = adapt
+    }
+
+
+    private fun setData(){
+        val images = arrayOf(
+            R.drawable.mark_twien
+        )
+        for (i in images.indices) {
+            val ob = inter_item(images[i])
+            item.add(ob)
+        }
     }
 }
