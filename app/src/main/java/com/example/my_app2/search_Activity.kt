@@ -3,15 +3,10 @@ package com.example.my_app2
 import MyAdapter
 import MyAdapter2
 import android.content.Intent
-import android.icu.text.Transliterator.Position
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.os.Handler
@@ -20,12 +15,11 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.appcompat.view.menu.MenuView.ItemView
+
 
 class search_Activity : AppCompatActivity() {
-  lateinit var  recyclerView: RecyclerView
-  lateinit var recyclerView2: RecyclerView
+    lateinit var  recyclerView: RecyclerView
+    lateinit var recyclerView2: RecyclerView
     private lateinit var titles :Array<String>
     private lateinit var titles2 :Array<String>
     private lateinit var newArraylist :ArrayList< ItemModel2>
@@ -36,16 +30,17 @@ class search_Activity : AppCompatActivity() {
     private lateinit var images2 :Array<Int>
     private lateinit var WriterNames :Array<String>
     private lateinit var  descw :Array<String>
-    private lateinit var desb :Array<Int>
-   private lateinit var search : EditText
-   private lateinit var home: ImageView
-   private lateinit var person: ImageView
+    private lateinit var search : EditText
+    private lateinit var home: ImageView
+    private lateinit var person: ImageView
     private lateinit var  test :Array<String>
+    private lateinit var heart : ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
 
         val progressBar1 = findViewById<ProgressBar>(R.id.progressBar1)
         progressBar1.visibility = View.VISIBLE
@@ -60,30 +55,7 @@ class search_Activity : AppCompatActivity() {
         }, 2000)
 
      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-           items = listOf(
-            ItemModel(R.drawable.one, "Huckleberry Finn", "4.5 votes",),
-            ItemModel(R.drawable.two, "Pirate Queen", "3.8 votes"),
-            ItemModel(R.drawable.three, "Huckleberry Finn", "4.2 votes"),
-            ItemModel(R.drawable.one, "elsera_elnabawya", "4.5 votes"),
-            ItemModel(R.drawable.two, "Huckleberry Finn", "3.8 votes"),
-            ItemModel(R.drawable.three, "Huckleberry Finn", "4.2 votes"),
-            ItemModel(R.drawable.one, "Huckleberry Finn", "4.5 votes"),
-            ItemModel(R.drawable.two, "Huckleberry Finn", "3.8 votes"),
-            ItemModel(R.drawable.three, "Huckleberry Finn", "4.2 votes")
-        )
-
-        items2 = listOf(
-            ItemModel(R.drawable.book1, "Cave crawlers ", "4.9 votes",),
-            ItemModel(R.drawable.book2, "Furry Farm ", "3.8 votes"),
-            ItemModel(R.drawable.book3, "Alexander ", "3.7 votes"),
-            ItemModel(R.drawable.book4, "The Wager", "4.6 votes"),
-            ItemModel(R.drawable.book1, "Cave crawlers", "3.8 votes"),
-            ItemModel(R.drawable.book2, "Furry Farm", "3.2 votes"),
-            ItemModel(R.drawable.book3, "Alexander", "3.5 votes"),
-            ItemModel(R.drawable.book4, "The Wager", "3.8 votes"),
-            ItemModel(R.drawable.book1, "Cave crawlers", "4.2 votes")
-        )
-
+        setArrayLists()
         setArrays()
         setdata()
 
@@ -131,7 +103,6 @@ class search_Activity : AppCompatActivity() {
         })
 
 
-        visible()
 
         home=findViewById(R.id.compass)
         home.setOnClickListener{
@@ -141,7 +112,10 @@ class search_Activity : AppCompatActivity() {
         person.setOnClickListener{
             startActivity(Intent(this , Login::class.java))
         }
-
+        heart=findViewById(R.id.heart)
+        heart.setOnClickListener{
+            startActivity(Intent(this, favBooks::class.java))
+        }
 
 
         // TextWatcher for search functionality
@@ -154,6 +128,8 @@ class search_Activity : AppCompatActivity() {
                 adapter2.filter(s.toString())
             }
         })
+
+        visible()
     }
 
 
@@ -171,18 +147,13 @@ class search_Activity : AppCompatActivity() {
              , R.drawable.book1 ,R.drawable.book2,R.drawable.book3,R.drawable.book4,R.drawable.book1
          )
          titles=arrayOf(
-             " Huckleberry Finn" ,"The Bachman books","Pirate Queen",  " Huckleberry Finn" ,
-             "The Bachman books","Pirate Queen"," Huckleberry Finn" ,"The Bachman books","Pirate Queen"
+             " Huckleberry Finn" ,"The Bachman","Pirate Queen",  " Huckleberry Finn" ,
+             "The Bachman","Pirate Queen"," Huckleberry Finn" ,"The Bachman","Pirate Queen"
          )
          titles2= arrayOf(
              "Cave crawlers","Furry Farm","Alexander","The Wager","Cave crawlers",
              "Furry Farm","Alexander","The Wager","Cave crawlers"
          )
-
-//         desb = arrayOf(
-//                 R.string.des1 , R.string.des2 ,R.string.des3 , R.string.des1 , R.string.des2 ,R.string.des3,R.string.des1 , R.string.des2 ,R.string.des3
-//
-//         )
 
          test = arrayOf(
              getString(R.string.des1),getString(R.string.des2),getString(R.string.des3)
@@ -224,6 +195,33 @@ class search_Activity : AppCompatActivity() {
 
             recyclerView2.visibility = View.VISIBLE
         }, 2000)
+    }
+
+    private fun  setArrayLists(){
+        items = listOf(
+            ItemModel(R.drawable.one, "Huckleberry Finn", "4.5 votes",),
+            ItemModel(R.drawable.two, "The Bachman", "3.8 votes"),
+            ItemModel(R.drawable.three, "Pirate Queen", "4.2 votes"),
+            ItemModel(R.drawable.one, "Huckleberry Finn", "4.5 votes"),
+            ItemModel(R.drawable.two, "The Bachman", "3.8 votes"),
+            ItemModel(R.drawable.three, "Pirate Queen", "4.2 votes"),
+            ItemModel(R.drawable.one, "Huckleberry Finn", "4.5 votes"),
+            ItemModel(R.drawable.two, "The Bachman", "3.8 votes"),
+            ItemModel(R.drawable.three, "Pirate Queen", "4.2 votes")
+        )
+
+        items2 = listOf(
+            ItemModel(R.drawable.book1, "Cave crawlers ", "4.9 votes",),
+            ItemModel(R.drawable.book2, "Furry Farm ", "3.8 votes"),
+            ItemModel(R.drawable.book3, "Alexander ", "3.7 votes"),
+            ItemModel(R.drawable.book4, "The Wager", "4.6 votes"),
+            ItemModel(R.drawable.book1, "Cave crawlers", "3.8 votes"),
+            ItemModel(R.drawable.book2, "Furry Farm", "3.2 votes"),
+            ItemModel(R.drawable.book3, "Alexander", "3.5 votes"),
+            ItemModel(R.drawable.book4, "The Wager", "3.8 votes"),
+            ItemModel(R.drawable.book1, "Cave crawlers", "4.2 votes")
+        )
+
     }
 
 }
